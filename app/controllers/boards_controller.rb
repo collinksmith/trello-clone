@@ -5,7 +5,7 @@ class BoardsController < ApplicationController
   end
   
   def create
-    @board = Board.new(baord_params)
+    @board = Board.new(board_params)
 
     if @board.save
       render json: @board
