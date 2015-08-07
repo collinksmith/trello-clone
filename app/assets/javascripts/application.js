@@ -12,14 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.serializejson.min.js
 //= require underscore
 //= require backbone
-//= require_tree ./utils
-//= require trello_clone
 //= require_tree ../templates
+//= require trello_clone
+//= require_tree ./utils
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
-//= require jquery.serializejson.min.js
