@@ -1,14 +1,14 @@
 class ListsController < ApplicationController
   def index
     @lists = List.all
-    render json: @lists
+    render :index
   end
   
   def create
     @list = List.new(baord_params)
 
     if @list.save
-      render json: @list
+      render :show
     else
       render :json => @list.errors, :status => :unprocessable_entity
     end
@@ -18,7 +18,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
 
     if @list.update
-      render json: @lsit
+      render :show
     else
       render :json => @list.errors, :status => :unprocessable_entity
     end
@@ -26,13 +26,13 @@ class ListsController < ApplicationController
   
   def show
     @list = List.find(params[:id])
-    render json: @list
+    render :show
   end
   
   def destroy
     @list = List.find(params[:id])
     @list.destroy!
-    render json: @list
+    render :show
   end
   
   private

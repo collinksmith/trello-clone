@@ -1,14 +1,14 @@
 class BoardsController < ApplicationController
   def index
     @boards = Board.all
-    render json: @boards
+    render :index
   end
   
   def create
     @board = Board.new(board_params)
 
     if @board.save
-      render json: @board
+      render :show
     else
       render :json => @board.errors, :status => :unprocessable_entity
     end
@@ -18,7 +18,7 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
 
     if @board.update
-      render json: @board
+      render :show
     else
       render :json => @board.errors, :status => :unprocessable_entity
     end
@@ -26,7 +26,7 @@ class BoardsController < ApplicationController
   
   def show
     @board = Board.find(params[:id])
-    render json: @board
+    render :show
   end
   
   def destroy
