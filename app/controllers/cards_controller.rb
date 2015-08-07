@@ -1,16 +1,16 @@
 class CardsController < ApplicationController
   def index
     @card = Card.all
-    render :json
+    render json: @card
   end
   
   def create
     @card = Card.new(baord_params)
 
     if @card.save
-      render :json
+      render json: @card
     else
-      render :json: @card.errors.full_message, status: 422
+      render :json => @card.errors, :status => :unprocessable_entity
     end
   end
   
@@ -18,21 +18,21 @@ class CardsController < ApplicationController
     @card = Card.find(params[:id])
 
     if @card.update
-      render :json
+      render json: @card
     else
-      render :json: @card.errors.full_message, status: 422
+      render :json => @card.errors, :status => :unprocessable_entity
     end
   end
   
   def show
     @card = Card.find(params[:id])
-    render :json
+    render json: @card
   end
   
   def destroy
     @card = Card.find(params[:id])
     @card.destroy!
-    render: json
+    render json: @card
   end
   
   private
