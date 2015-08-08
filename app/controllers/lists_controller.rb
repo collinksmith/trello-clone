@@ -5,7 +5,7 @@ class ListsController < ApplicationController
   end
   
   def create
-    @list = List.new(baord_params)
+    @list = List.new(list_params)
 
     if @list.save
       render :show
@@ -38,7 +38,7 @@ class ListsController < ApplicationController
   private
   
   def list_params
-    params.require(:list).permit(:title, :ord)
+    params.require(:list).permit(:title, :ord, :board_id)
   end
 end
 

@@ -5,7 +5,7 @@ class CardsController < ApplicationController
   end
   
   def create
-    @card = Card.new(baord_params)
+    @card = Card.new(card_params)
 
     if @card.save
       render :show
