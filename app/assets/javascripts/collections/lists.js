@@ -1,5 +1,5 @@
 TrelloClone.Collections.Lists = Backbone.Collection.extend({
-  url: "lists",
+  url: "/lists",
 
   model: TrelloClone.Models.List,
 
@@ -10,10 +10,11 @@ TrelloClone.Collections.Lists = Backbone.Collection.extend({
     if (list) {
       list.fetch();
     } else {
-      list = new TrelloClone.Models.list({ id: id });
+      list = new TrelloClone.Models.List({ id: id });
+      lists.add(list)
       list.fetch({
-        success: function () {
-          lists.add(list);
+        error: function () {
+          lists.remove(list);
         }
       });
     }

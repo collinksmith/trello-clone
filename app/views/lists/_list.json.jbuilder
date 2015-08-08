@@ -1,4 +1,4 @@
-json.(list, :title, :ord, :board_id)
+json.(list, :id, :title, :ord, :board_id)
 
 if display_cards
   json.cards do
