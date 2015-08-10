@@ -23,6 +23,26 @@
   display: inline-block;
 }
 
+.delete-list {
+  display: none;
+  float: right;
+}
+
+.list-header:hover{
+  .delete-list {
+    display: inline-block;
+  }
+}
+
+.delete-card {
+  display: none;
+  float: right;
+}
+
 .card-list-item:hover {
   background: lightgray;
+
+  .delete-card {
+    display: inline-block;
+  }
 }
