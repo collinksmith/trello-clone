@@ -1,0 +1,27 @@
+<% if (display_form) { %>
+  <label>Title
+  <input type="text"
+         name="title"
+         value="<%= card.escape('title') %>">
+  </label>
+  <br>
+
+  <label>Description
+  <input type="textarea"
+         name="description"
+         value="<%= card.escape('description') %>">
+  </label>
+  <br>
+
+  <input type="hidden"
+         name="ord"
+         value="<%= list.cards().length + 1 %>">
+
+  <input type="hidden"
+         name="list_id"
+         value="<%= list.id %>">
+  
+  <input type="submit" value="Create Card">
+<% } else { %>
+  <button class="add-card">Add a Card...</button>
+<% } %>
