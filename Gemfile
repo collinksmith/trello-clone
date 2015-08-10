@@ -25,6 +25,7 @@ gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'backbone-on-rails'
 gem 'ejs'
 gem 'bootstrap-sass'
+gem 'jquery-ui-rails'
 
 
 # Use ActiveModel has_secure_password

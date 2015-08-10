@@ -12,7 +12,13 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template({ board: this.model }));
     this.attachSubviews();
+    this.onRender();
     return this;
+  },
+
+  onRender: function () {
+  this.$(".lists").sortable();
+  Backbone.CompositeView.prototype.onRender.call(this);
   },
 
   addListView: function (list) {
