@@ -1,13 +1,15 @@
 <% if (display_form) { %>
   <label>Title
-  <input type="text"
+  <input class="form-control"
+         type="text"
          name="title"
          value="<%= card.escape('title') %>">
   </label>
   <br>
 
   <label>Description
-  <input type="textarea"
+  <input class="form-control"
+         type="textarea"
          name="description"
          value="<%= card.escape('description') %>">
   </label>
@@ -21,7 +23,7 @@
          name="list_id"
          value="<%= list.id %>">
   
-  <input type="submit" value="Create Card">
+  <input class="button btn-primary" type="submit" value="Create Card">
 <% } else { %>
   <button class="add-card button btn-primary">Add a Card...</button>
 <% } %>

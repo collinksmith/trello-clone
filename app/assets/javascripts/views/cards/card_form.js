@@ -1,6 +1,7 @@
 TrelloClone.Views.CardForm = Backbone.View.extend({
   template: JST['cards/card_form'],
   tagName: "form",
+  className: "input-group",
 
   events: {
     "click .add-card": "addCardForm",

@@ -1,6 +1,7 @@
 <% if (display_form) { %>
   <label>Title
-  <input type="text"
+  <input class="form-control"
+         type="text"
          name="title"
          value="<%= list.escape('title') %>">
   </label>
@@ -14,7 +15,7 @@
          name="ord"
          value="<%= board.lists().length + 1 %>">
 
-  <input type="submit" value="save">
+  <input class="button btn-primary" type="submit" value="Create List">
 <% } else { %>
   <button class="add-list button btn-primary">Add a list...</button>
 <% } %>
