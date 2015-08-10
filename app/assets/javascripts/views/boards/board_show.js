@@ -1,12 +1,9 @@
 TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
   template: JST['boards/board_show'],
 
-  events: {
-    'click .add-list': 'addListForm'
-  },
-
   initialize: function () {
     this.model.lists().each(this.addListView.bind(this));
+    this.addListForm();
     this.listenTo(this.model.lists(), 'add', this.addListView);
     this.listenTo(this.model, 'sync', this.render);
   },
@@ -22,8 +19,7 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
     this.addSubview('.lists', subview);
   },
 
-  addListForm: function (event) {
-    event.preventDefault();
+  addListForm: function () {
     var newList = new TrelloClone.Models.List();
     var subview = new TrelloClone.Views.ListForm({ 
       model: newList,
