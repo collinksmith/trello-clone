@@ -1,9 +1,7 @@
 json.(list, :id, :title, :ord, :board_id)
 
-if display_cards
-  json.cards do
-    json.array! list.cards do |card|
-      json.partial! 'cards/card', card: card
-    end
+json.cards do
+  json.array! list.cards.order(:ord) do |card|
+    json.partial! 'cards/card', card: card
   end
 end
