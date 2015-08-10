@@ -36,10 +36,8 @@ TrelloClone.Views.ListForm = Backbone.View.extend({
       success: function (model) {
         this.collection.add(model);
         this.model = new TrelloClone.Models.List();
-        this.render();
       }.bind(this)
     });
-
     this.render();
   }
 });
