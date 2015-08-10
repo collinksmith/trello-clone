@@ -17,7 +17,7 @@ class BoardsController < ApplicationController
   def update
     @board = Board.find(params[:id])
 
-    if @board.update
+    if @board.update(board_params)
       render :show
     else
       render :json => @board.errors, :status => :unprocessable_entity

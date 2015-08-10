@@ -17,7 +17,7 @@ class CardsController < ApplicationController
   def update
     @card = Card.find(params[:id])
 
-    if @card.update
+    if @card.update(card_params)
       render :show
     else
       render :json => @card.errors, :status => :unprocessable_entity

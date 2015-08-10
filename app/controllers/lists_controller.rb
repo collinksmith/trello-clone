@@ -17,7 +17,7 @@ class ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
 
-    if @list.update
+    if @list.update(list_params)
       render :show
     else
       render :json => @list.errors, :status => :unprocessable_entity
