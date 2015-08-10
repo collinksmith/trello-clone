@@ -28,15 +28,19 @@ TrelloClone.Views.ListForm = Backbone.View.extend({
 
   createList: function (event) {
     event.preventDefault();
-    this.display_form = false;
     var $form = $(event.currentTarget);
     var formData = $form.serializeJSON();
+    var view = this;
 
     this.model.save(formData, {
       success: function (model) {
-        this.collection.add(model);
-        this.model = new TrelloClone.Models.List();
-      }.bind(this)
+        view.display_form = false;
+        view.collection.add(model);
+        view.model = new TrelloClone.Models.List();
+      },
+      error: function (model, response) {
+        view.$(".title").effect("highlight");
+      }
     });
     this.render();
   }

@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.serializejson.min.js
 //= require jquery-ui/sortable
+//= require jquery-ui/effect-highlight
 //= require bootstrap-sprockets
 //= require underscore
 //= require backbone

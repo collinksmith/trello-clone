@@ -28,13 +28,16 @@ TrelloClone.Views.CardForm = Backbone.View.extend({
 
   createCard: function (event) {
     event.preventDefault();
-    this.display_form = false
     var formData = this.$el.serializeJSON();
 
     this.model.save(formData, {
       success: function (model) {
+        this.display_form = false
         this.collection.add(model);
         this.model = new TrelloClone.Models.Card();
+      }.bind(this),
+      error: function (model, response) {
+        this.$(".title").effect("highlight");
       }.bind(this)
     })
     this.render();
