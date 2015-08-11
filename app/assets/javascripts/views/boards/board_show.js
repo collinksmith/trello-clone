@@ -2,7 +2,8 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
   template: JST['boards/board_show'],
 
   events: {
-    "sortstop": "sortLists"
+    "sortstop": "sortLists",
+    "click .delete-board": "deleteBoardModal"
   },
 
   initialize: function () {
@@ -53,5 +54,11 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
       board: this.model 
     });
     this.addSubview('.new-list-form', subview);
+  },
+
+  deleteBoardModal: function () {
+    var modalView = new TrelloClone.Views.DeleteBoardModal({ model: this.model });
+    this.addSubview('.modal', modalView);
+    this.render();
   }
 });

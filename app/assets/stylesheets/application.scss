@@ -20,11 +20,11 @@
   border: 1px solid gray;
 }
 
-.list-title {
+.list-title, .board-title {
   display: inline-block;
 }
 
-.delete-list {
+.delete-list, .delete-card {
   display: none;
   float: right;
 }
@@ -35,9 +35,9 @@
   }
 }
 
-.delete-card {
-  display: none;
-  float: right;
+.delete-board {
+  display: inline-block;
+  margin-left: 20px;
 }
 
 .card-list-item:hover {
@@ -50,4 +50,34 @@
 
 .remove-form {
   border: none;
+}
+
+.modal {
+  position: relative;
+  display: block;
+}
+
+.modal-background {
+  position: relative;
+  background-color: black;
+  opacity: 0.4;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+
+.modal-popup {
+  position: relative;
+  margin: auto;
+  width: 200px;
+  height: 150px;
+  z-index: 2;
+  opacity: 1;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.modal-delete {
+  opacity: 1;
+  z-index: 3;
 }
