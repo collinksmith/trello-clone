@@ -5,7 +5,8 @@ TrelloClone.Views.CardForm = Backbone.View.extend({
 
   events: {
     "click .add-card": "addCardForm",
-    "submit": "createCard"
+    "submit": "createCard",
+    'click .remove-form': 'removeCardForm'
   },
 
   initialize: function (options) {
@@ -23,6 +24,12 @@ TrelloClone.Views.CardForm = Backbone.View.extend({
 
   addCardForm: function () {
     this.display_form = true;
+    this.render();
+    this.$(".title").focus();
+  },
+
+  removeCardForm: function () {
+    this.display_form = false;
     this.render();
   },
 

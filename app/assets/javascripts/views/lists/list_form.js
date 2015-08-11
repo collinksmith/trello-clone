@@ -5,7 +5,8 @@ TrelloClone.Views.ListForm = Backbone.View.extend({
 
   events: {
     'submit': 'createList',
-    'click .add-list': 'addListForm'
+    'click .add-list': 'addListForm',
+    'click .remove-form': 'removeListForm'
   },
 
   initialize: function (options) {
@@ -15,6 +16,12 @@ TrelloClone.Views.ListForm = Backbone.View.extend({
 
   addListForm: function () {
     this.display_form = true;
+    this.render();
+    this.$(".title").focus();
+  },
+
+  removeListForm: function () {
+    this.display_form = false;
     this.render();
   },
 
